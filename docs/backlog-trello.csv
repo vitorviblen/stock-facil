@@ -1,0 +1,48 @@
+ID,Card,Lista,Responsavel,Data Inicio,Data Conclusao,Etiqueta,Sprint
+T-001,Definir escopo e requisitos do sistema,Done,Tech Lead,2026-04-27,2026-04-27,Planejamento,Sprint 1
+T-002,Escolher stack (Next.js 14 + Supabase + Tailwind),Done,Tech Lead,2026-04-27,2026-04-27,Arquitetura,Sprint 1
+T-003,Levantar regras de negocio (caixa fisico + online),Done,Tech Lead + Backend,2026-04-28,2026-04-28,Planejamento,Sprint 1
+T-004,Mapear os 3 perfis de usuario (Admin Operador Cliente),Done,Frontend Design,2026-04-28,2026-04-28,Design,Sprint 1
+T-005,Wireframes Tela ADM (9 telas no Figma),Done,Frontend Design,2026-04-29,2026-04-30,Design,Sprint 1
+T-006,Modelagem ER do banco de dados,Done,Backend,2026-04-29,2026-04-30,Banco,Sprint 1
+T-007,Wireframes Tela Operador (5 telas no Figma),Done,Frontend Design,2026-05-01,2026-05-01,Design,Sprint 1
+T-008,Wireframes Tela Cliente (4 telas no Figma),Done,Frontend UX,2026-05-02,2026-05-02,Design,Sprint 1
+T-009,Paleta de cores tipografia design system (mint emerald ink + Nunito),Done,Frontend Design,2026-05-02,2026-05-03,Design,Sprint 1
+T-010,Setup inicial do repositorio local,Done,Tech Lead,2026-05-03,2026-05-03,Infra,Sprint 1
+T-011,Criar projeto Supabase e configurar ambiente,Done,Backend,2026-05-04,2026-05-04,Infra,Sprint 2
+T-012,Setup Next.js 14 + TypeScript + Tailwind,Done,Tech Lead,2026-05-04,2026-05-04,Infra,Sprint 2
+T-013,Schema SQL tabelas profiles products,Done,Backend,2026-05-04,2026-05-05,Banco,Sprint 2
+T-014,Schema SQL stock_movements sales sale_items,Done,Backend,2026-05-05,2026-05-05,Banco,Sprint 2
+T-015,Configurar shadcn/ui + componentes base,Done,Frontend Design,2026-05-05,2026-05-06,Frontend,Sprint 2
+T-016,Schema SQL orders order_items + enum order_status,Done,Backend,2026-05-06,2026-05-06,Banco,Sprint 2
+T-017,RPC register_sale (PL/pgSQL atomico com for update),Done,Backend,2026-05-06,2026-05-06,Banco,Sprint 2
+T-018,RPC create_order + update_order_status,Done,Backend,2026-05-07,2026-05-07,Banco,Sprint 2
+T-019,RPC add_stock + funcao is_admin,Done,Backend,2026-05-07,2026-05-07,Banco,Sprint 2
+T-020,Politicas RLS (Row Level Security) em todas as tabelas,Done,Backend,2026-05-08,2026-05-08,Seguranca,Sprint 2
+T-021,Tipos TypeScript completos do schema (src/types/database.ts),Done,Tech Lead,2026-05-08,2026-05-08,Frontend,Sprint 2
+T-022,Auth Supabase + middleware com routing por role,Done,Tech Lead,2026-05-09,2026-05-09,Auth,Sprint 2
+T-023,Layout base Sidebar MobileHeader,Done,Frontend UX,2026-05-09,2026-05-09,Frontend,Sprint 2
+T-024,Tela de Login + Logout,Done,Tech Lead,2026-05-10,2026-05-10,Frontend,Sprint 2
+T-025,Tela Dashboard ADM (4 KPIs top vendidos alertas ultimas vendas),Done,Frontend Design,2026-05-11,2026-05-11,Frontend,Sprint 3
+T-026,Tela Cadastro de Produto + validacao Zod,Done,Frontend UX,2026-05-11,2026-05-11,Frontend,Sprint 3
+T-027,Tela Lista de Produtos + edit dialog + toggle ativo,Done,Frontend Design,2026-05-12,2026-05-12,Frontend,Sprint 3
+T-028,Tela Entrada de Estoque + integracao RPC add_stock,Done,Backend + Frontend UX,2026-05-12,2026-05-12,Integracao,Sprint 3
+T-029,Tela Vendas no Caixa (carrinho + RPC register_sale),Done,Tech Lead,2026-05-13,2026-05-13,Frontend,Sprint 3
+T-030,Tela Relatorios (Recharts + Tabs 7/30/90 dias),Done,Frontend UX,2026-05-13,2026-05-13,Frontend,Sprint 3
+T-031,Tela Alertas de Estoque (cards criticos ok),Done,Frontend Design,2026-05-14,2026-05-14,Frontend,Sprint 3
+T-032,Tela Gestao de Usuarios (admin only) + API route service role,Done,Backend + Tech Lead,2026-05-14,2026-05-14,Frontend,Sprint 3
+T-033,Layout do Operador (sidebar propria + mobile header),Done,Frontend UX,2026-05-15,2026-05-15,Frontend,Sprint 3
+T-034,Tela Painel do Operador (4 KPIs de pedidos),Done,Frontend Design,2026-05-15,2026-05-15,Frontend,Sprint 3
+T-035,Telas Atualizar Pedidos + Detalhe do Pedido (status + rastreio),Done,Backend + Frontend UX,2026-05-15,2026-05-16,Frontend,Sprint 3
+T-036,Tela Envio e Entrega (cards Aprovados + Em Rota),Done,Frontend UX,2026-05-16,2026-05-16,Frontend,Sprint 3
+T-037,Tela Movimentacoes (historico entradas saidas),Done,Backend + Frontend Design,2026-05-16,2026-05-16,Frontend,Sprint 3
+T-038,Layout da Loja (header e-commerce sem sidebar),Done,Frontend Design,2026-05-16,2026-05-16,Frontend,Sprint 3
+T-039,Tela Cadastro de Cliente (auto-signup public),Done,Frontend UX,2026-05-16,2026-05-16,Frontend,Sprint 3
+T-040,Tela Catalogo (Loja) + carrinho localStorage,Done,Frontend Design,2026-05-17,2026-05-17,Frontend,Sprint 3
+T-041,Tela Carrinho/Checkout + RPC create_order,Done,Tech Lead,2026-05-17,2026-05-17,Integracao,Sprint 3
+T-042,Tela Meus Pedidos (cliente acompanha status + rastreio),Done,Frontend UX,2026-05-17,2026-05-17,Frontend,Sprint 3
+T-043,Testes visuais finais (Login Cadastro Loja Dashboard Operador Carrinho),Done,QA,2026-05-18,2026-05-18,Testes,Entrega
+T-044,Bug fix: header de cliente logado aparecia em /cadastro,Done,Tech Lead,2026-05-18,2026-05-18,Bug,Entrega
+T-045,Build de producao final (21 rotas compiladas zero erros TS),Done,QA + Tech Lead,2026-05-18,2026-05-18,Build,Entrega
+T-046,Documentacao final (README + bugs resolvidos + roteiro apresentacao),Done,QA,2026-05-18,2026-05-18,Docs,Entrega
+T-047,Push pro GitHub (vitorviblen/stock-facil publico),Done,Tech Lead,2026-05-18,2026-05-18,Entrega,Entrega
