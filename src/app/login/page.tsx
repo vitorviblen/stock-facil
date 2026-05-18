@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Package, Loader2 } from "lucide-react";
+import { Package, Loader2, ShieldCheck, Truck, ShoppingBag } from "lucide-react";
 import { toast } from "sonner";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -10,11 +10,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 
+const DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE === "1";
+
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [demoLoading, setDemoLoading] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -28,6 +31,16 @@ export default function LoginPage() {
     }
     toast.success("Bem-vindo de volta!");
     router.push("/");
+    router.refresh();
+  }
+
+  async function demoLogin(email: string, label: string, target: string) {
+    setDemoLoading(label);
+    const supabase = createClient();
+    await supabase.auth.signInWithPassword({ email, password: "demo" });
+    setDemoLoading(null);
+    toast.success(`Entrando como ${label}…`);
+    router.push(target);
     router.refresh();
   }
 
@@ -99,6 +112,62 @@ export default function LoginPage() {
             </p>
           </CardContent>
         </Card>
+
+        {DEMO_MODE ? (
+          <Card className="mt-4 border-stock-mint/30 bg-white/95 backdrop-blur">
+            <CardContent className="pt-6">
+              <div className="mb-3 space-y-1">
+                <h3 className="text-sm font-bold uppercase tracking-wide text-stock-emerald">
+                  Modo demonstração
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Entre como qualquer perfil sem senha — dados de demonstração.
+                </p>
+              </div>
+              <div className="grid gap-2">
+                <Button
+                  variant="outline"
+                  className="justify-start"
+                  disabled={!!demoLoading}
+                  onClick={() => demoLogin("admin@teste.com", "Administrador", "/dashboard")}
+                >
+                  {demoLoading === "Administrador" ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <ShieldCheck className="h-4 w-4 text-stock-emerald" />
+                  )}
+                  Entrar como Administrador
+                </Button>
+                <Button
+                  variant="outline"
+                  className="justify-start"
+                  disabled={!!demoLoading}
+                  onClick={() => demoLogin("op@teste.com", "Operador", "/operador")}
+                >
+                  {demoLoading === "Operador" ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Truck className="h-4 w-4 text-stock-emerald" />
+                  )}
+                  Entrar como Operador
+                </Button>
+                <Button
+                  variant="outline"
+                  className="justify-start"
+                  disabled={!!demoLoading}
+                  onClick={() => demoLogin("cliente@teste.com", "Cliente", "/loja")}
+                >
+                  {demoLoading === "Cliente" ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <ShoppingBag className="h-4 w-4 text-stock-emerald" />
+                  )}
+                  Entrar como Cliente
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        ) : null}
       </div>
     </div>
   );
